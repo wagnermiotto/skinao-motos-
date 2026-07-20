@@ -27,7 +27,9 @@
 *.zip
 
 # Ferramentas locais de desenvolvimento
-/.claude/
+# (.claude/launch.json é versionado — define como subir o servidor de dev)
+/.claude/*
+!/.claude/launch.json
 /.vscode/
 
 # Lixo de sistema e temporários

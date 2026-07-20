@@ -1,0 +1,25 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "php-site",
+      "runtimeExecutable": "C:\\Program Files\\Git\\bin\\bash.exe",
+      "runtimeArgs": [
+        "-c",
+        "exec '/c/Users/User/AppData/Local/php-portable/php.exe' -c '/c/Users/User/AppData/Local/php-portable/php.ini' -S localhost:${PORT:-4173} -t '/c/Users/User/Documents/Projetos sites/claud coud site skinao'"
+      ],
+      "port": 4173,
+      "autoPort": true
+    },
+    {
+      "name": "next-dev",
+      "runtimeExecutable": "C:\\Program Files\\Git\\bin\\bash.exe",
+      "runtimeArgs": [
+        "-c",
+        "cd '/c/Users/User/Documents/Projetos sites/skinao-motos-next' && exec npm run dev -- --port ${PORT:-3000}"
+      ],
+      "port": 3000,
+      "autoPort": true
+    }
+  ]
+}
