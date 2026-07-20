@@ -30,6 +30,12 @@ DirectoryIndex index.php index.html
     </IfModule>
 </FilesMatch>
 
+# ---- Bloqueia pastas de desenvolvimento inteiras (.git, .claude) ----
+<IfModule mod_alias.c>
+    RedirectMatch 404 ^/\.git(/|$)
+    RedirectMatch 404 ^/\.claude(/|$)
+</IfModule>
+
 # ---- Cabeçalhos de segurança ----
 <IfModule mod_headers.c>
     Header always set X-Content-Type-Options "nosniff"
