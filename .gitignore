@@ -1,0 +1,38 @@
+# ============================================================
+#  Skinão Motos — o que NUNCA vai para o repositório
+# ============================================================
+
+# Banco local SQLite (contém dados reais de clientes e senha do admin)
+/data/*.sqlite
+/data/*.sqlite3
+/data/*.db
+/data/import/
+
+# Dados exportados para produção — contêm CPF de clientes e hash de senha.
+# Gere localmente com: php scripts/exportar-mysql.php
+/sql/dados-producao.sql
+
+# Credenciais da hospedagem (criado no servidor a partir do .example)
+/includes/config.local.php
+
+# Fotos e documentos enviados pelo painel (vão por uploads-fotos.zip)
+/uploads/motos/*
+!/uploads/motos/.gitkeep
+/uploads/clientes/*
+!/uploads/clientes/.gitkeep
+/uploads/rh/*
+!/uploads/rh/.gitkeep
+
+# Pacotes de deploy (gerados por scripts/empacotar-deploy.ps1)
+*.zip
+
+# Ferramentas locais de desenvolvimento
+/.claude/
+/.vscode/
+
+# Lixo de sistema e temporários
+Thumbs.db
+.DS_Store
+*.log
+*.tmp
+*.bak

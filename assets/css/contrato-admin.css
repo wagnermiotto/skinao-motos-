@@ -1,0 +1,126 @@
+/* ============================================================
+   Módulo Contratos — estilos do painel admin (tabs, tabela, form)
+   Reaproveita os tokens de :root do styles.css
+   ============================================================ */
+
+.ct-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  border-bottom: 1px solid var(--line, #1a1a1a);
+  margin: 18px 0 22px;
+}
+.ct-tabs a {
+  padding: 10px 16px;
+  color: var(--ink-soft, #a4a4a4);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  border-bottom: 2px solid transparent;
+  border-radius: 6px 6px 0 0;
+  transition: color .15s, background .15s, border-color .15s;
+}
+.ct-tabs a:hover { color: var(--ink, #fff); background: rgba(255,255,255,.04); }
+.ct-tabs a.is-active {
+  color: #fff;
+  border-bottom-color: var(--red, #dc2626);
+}
+.ct-badge {
+  display: inline-block;
+  min-width: 18px;
+  padding: 1px 6px;
+  margin-left: 4px;
+  border-radius: 10px;
+  background: rgba(220,38,38,.18);
+  color: #ff6b6b;
+  font-size: 11px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.ct-filtros { margin-bottom: 18px; }
+
+.ct-mono { font-family: "Consolas", "Courier New", monospace; font-size: 13px; }
+
+.ct-tabela td, .ct-tabela th { white-space: nowrap; }
+.ct-acoes { display: flex; gap: 2px; align-items: center; }
+.ct-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px; height: 30px;
+  border: 0;
+  background: transparent;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 15px;
+  line-height: 1;
+  text-decoration: none;
+  transition: background .15s, transform .1s;
+}
+.ct-icon-btn:hover { background: rgba(255,255,255,.08); }
+.ct-icon-btn:active { transform: scale(.92); }
+.ct-icon-btn--danger:hover { background: rgba(220,38,38,.2); }
+
+/* ---- seleção de venda (contrato-novo) ---- */
+.ct-venda-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin-top: 8px;
+}
+.ct-venda-card {
+  background: var(--black-card, #1a1a1a);
+  border: 1px solid var(--line, #2a2a2a);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color .15s, transform .12s;
+}
+.ct-venda-card:hover { border-color: var(--red, #dc2626); transform: translateY(-2px); }
+.ct-venda-card h3 { margin: 0; font-size: 16px; color: #fff; }
+.ct-venda-card .ct-venda-meta { color: var(--ink-soft, #a4a4a4); font-size: 13px; line-height: 1.5; }
+.ct-venda-card .ct-venda-valor { color: #4ade80; font-weight: 700; font-size: 15px; }
+.ct-venda-card .ct-tem-contrato { color: #fbbf24; font-size: 12px; font-weight: 600; }
+.ct-venda-card .btn { margin-top: auto; }
+
+/* ---- formulário de geração ---- */
+.ct-gen-layout { display: block; }
+.ct-gen-grupo { margin-bottom: 8px; }
+.ct-gen-grupo > legend {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  padding: 0 6px;
+}
+.ct-campo-vazio input,
+.ct-campo-vazio textarea {
+  border-color: #fbbf24 !important;
+  background: rgba(251,191,36,.06) !important;
+}
+.ct-campo-req label::after { content: " *"; color: var(--red, #dc2626); }
+
+.ct-help-vazio {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 8px;
+  background: rgba(251,191,36,.14);
+  color: #fbbf24;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.ct-gen-actions {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  background: linear-gradient(to top, var(--black, #0a0a0a) 60%, transparent);
+  padding: 16px 0 8px;
+  margin-top: 10px;
+}

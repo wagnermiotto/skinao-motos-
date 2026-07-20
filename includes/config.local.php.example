@@ -1,0 +1,30 @@
+<?php
+/**
+ * ============================================================
+ *  CONFIGURAÇÃO DA HOSPEDAGEM — Skinão Motos
+ * ============================================================
+ *
+ * COMO USAR:
+ * 1. Renomeie este arquivo de "config.local.php.example" para "config.local.php".
+ * 2. Preencha os 4 dados do banco MySQL que você criou no painel da hospedagem.
+ * 3. Salve. Pronto — o site passa a usar o MySQL.
+ *
+ * Este arquivo tem prioridade sobre o config.php, então atualizações futuras
+ * do sistema nunca apagam suas credenciais.
+ *
+ * ATENÇÃO: nunca compartilhe este arquivo — ele contém a senha do banco.
+ */
+
+// ---- Banco de dados MySQL da hospedagem ----
+define('DB_DRIVER', 'mysql');
+
+define('DB_HOST', 'localhost');           // normalmente 'localhost' no cPanel
+define('DB_NAME', 'usuario_skinao');      // nome do banco criado no painel
+define('DB_USER', 'usuario_skinao');      // usuário do banco
+define('DB_PASS', 'SUA_SENHA_AQUI');      // senha do banco
+
+// ---- Opcional: sobrescreva qualquer outra configuração aqui ----
+// Exemplo (descomente e ajuste se precisar):
+// define('WHATSAPP_NUMBER', '5516997155789');
+// define('INSTAGRAM_URL', 'https://instagram.com/skinaomotos');
+// define('CONTACT_HOURS_WEEKDAY', 'Seg a Sex: 08h às 18h');

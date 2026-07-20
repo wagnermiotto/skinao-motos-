@@ -1,0 +1,167 @@
+/* ============================================================
+   Documento de contrato — layout fiel ao modelo (papel A4).
+   Usado na pré-visualização e na página de impressão/PDF.
+   ============================================================ */
+
+.ct-paper {
+  background: #ffffff;
+  color: #000000;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  padding: 22mm 20mm;
+  box-sizing: border-box;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .45);
+}
+
+.ct-doc {
+  font-family: "Calibri", "Segoe UI", Arial, sans-serif;
+  font-size: 11pt;
+  line-height: 1.4;
+  color: #000;
+  text-align: justify;
+}
+
+.ct-doc p { margin: 0 0 8pt; }
+
+.ct-titulo {
+  text-align: center;
+  font-size: 15pt;
+  font-weight: 700;
+  margin: 0 0 16pt;
+  letter-spacing: .3px;
+}
+
+.ct-label { margin-bottom: 2pt !important; }
+.ct-parte { margin-bottom: 10pt !important; }
+.ct-intro { margin: 10pt 0 !important; }
+
+.ct-clausula {
+  font-size: 11.5pt;
+  font-weight: 700;
+  margin: 14pt 0 6pt;
+  text-align: left;
+  page-break-after: avoid;
+}
+
+.ct-obj {
+  margin-left: 6pt;
+  line-height: 1.55;
+}
+
+.ct-preco {
+  font-weight: 600;
+}
+.ct-extenso {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.ct-pgto { margin: 2pt 0 !important; }
+.ct-sub { margin: 10pt 0 2pt !important; }
+.ct-obs { white-space: pre-wrap; }
+
+.ct-fecho { margin-top: 14pt !important; }
+.ct-data {
+  margin: 24pt 0 20pt !important;
+  text-align: left;
+}
+
+/* ---- assinaturas ---- */
+.ct-assinaturas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26pt 40pt;
+  margin-top: 18pt;
+}
+.ct-assina {
+  text-align: center;
+  page-break-inside: avoid;
+}
+.ct-assina .ct-linha {
+  border-top: 1px solid #000;
+  margin: 0 auto 4pt;
+  width: 82%;
+}
+.ct-assina p {
+  margin: 0 !important;
+  font-size: 10.5pt;
+  line-height: 1.35;
+}
+
+/* ============================================================
+   Página de visualização/impressão (fundo escuro fora do papel)
+   ============================================================ */
+.ct-view-body {
+  margin: 0;
+  background: #2b2b2b;
+  padding: 24px 12px 60px;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.ct-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(17, 17, 17, .96);
+  border-bottom: 1px solid #dc2626;
+  padding: 12px 16px;
+  margin: -24px -12px 24px;
+}
+.ct-toolbar .ct-num {
+  color: #fff;
+  font-weight: 600;
+  margin-right: auto;
+  padding-left: 8px;
+}
+.ct-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  border-radius: 8px;
+  padding: 9px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  background: #2a2a2a;
+  color: #fff;
+  border: 1px solid #444;
+  transition: background .15s, transform .1s;
+}
+.ct-btn:hover { background: #3a3a3a; }
+.ct-btn:active { transform: translateY(1px); }
+.ct-btn--primary { background: #dc2626; border-color: #dc2626; }
+.ct-btn--primary:hover { background: #ef3a3a; }
+.ct-btn svg { width: 16px; height: 16px; }
+
+/* ---- regras de impressão ---- */
+@media print {
+  .ct-view-body { background: #fff; padding: 0; }
+  .ct-toolbar { display: none !important; }
+  .ct-paper {
+    box-shadow: none;
+    width: auto;
+    min-height: auto;
+    margin: 0;
+    padding: 0;
+  }
+  @page { size: A4; margin: 18mm 16mm; }
+}
+
+/* ---- pré-visualização dentro do painel admin ---- */
+.ct-preview-wrap {
+  background: #2b2b2b;
+  border-radius: 12px;
+  padding: 20px;
+  overflow-x: auto;
+}
+.ct-preview-wrap .ct-paper {
+  transform-origin: top center;
+}

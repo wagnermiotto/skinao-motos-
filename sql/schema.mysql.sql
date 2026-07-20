@@ -1,0 +1,58 @@
+CREATE TABLE IF NOT EXISTS motos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    marca VARCHAR(80) NOT NULL,
+    modelo VARCHAR(120) NOT NULL,
+    ano SMALLINT,
+    preco DECIMAL(10,2) NOT NULL,
+    categoria VARCHAR(30) NOT NULL DEFAULT 'outra',
+    km INT DEFAULT 0,
+    cor VARCHAR(40),
+    condicao ENUM('novo','seminovo') NOT NULL DEFAULT 'seminovo',
+    descricao TEXT,
+    destaque TINYINT(1) NOT NULL DEFAULT 0,
+    ativo TINYINT(1) NOT NULL DEFAULT 1,
+    valor_compra DECIMAL(10,2) NOT NULL DEFAULT 0,
+    valor_venda DECIMAL(10,2) NOT NULL DEFAULT 0,
+    gasto_manutencao DECIMAL(10,2) NOT NULL DEFAULT 0,
+    gasto_documentacao DECIMAL(10,2) NOT NULL DEFAULT 0,
+    gasto_transporte DECIMAL(10,2) NOT NULL DEFAULT 0,
+    outros_custos DECIMAL(10,2) NOT NULL DEFAULT 0,
+    status VARCHAR(20) NOT NULL DEFAULT 'disponivel',
+    vendido_em DATETIME NULL,
+    cliente_nome VARCHAR(120) NOT NULL DEFAULT '',
+    cliente_documento VARCHAR(20) NOT NULL DEFAULT '',
+    cliente_telefone VARCHAR(30) NOT NULL DEFAULT '',
+    cliente_cidade VARCHAR(80) NOT NULL DEFAULT '',
+    cliente_estado VARCHAR(2) NOT NULL DEFAULT '',
+    vendedor VARCHAR(120) NOT NULL DEFAULT '',
+    placa VARCHAR(10) NOT NULL DEFAULT '',
+    chassi VARCHAR(30) NOT NULL DEFAULT '',
+    forma_pagamento VARCHAR(40) NOT NULL DEFAULT '',
+    venda_obs TEXT,
+    numero_venda VARCHAR(20) NOT NULL DEFAULT '',
+    criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS moto_fotos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    moto_id INT NOT NULL,
+    arquivo VARCHAR(255) NOT NULL,
+    ordem INT NOT NULL DEFAULT 0,
+    capa TINYINT(1) NOT NULL DEFAULT 0,
+    FOREIGN KEY (moto_id) REFERENCES motos(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS admin_usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(60) NOT NULL UNIQUE,
+    senha_hash VARCHAR(255) NOT NULL,
+    criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS clientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    arquivo VARCHAR(255) NOT NULL,
+    ordem INT NOT NULL DEFAULT 0,
+    ativo TINYINT(1) NOT NULL DEFAULT 1,
+    criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

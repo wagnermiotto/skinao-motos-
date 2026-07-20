@@ -1,0 +1,163 @@
+/* ============================================================
+   Módulo RH — estilos do painel (KPIs, cards, perfil)
+   Reaproveita os tokens de :root do styles.css
+   ============================================================ */
+
+/* ---- KPIs do dashboard ---- */
+.rh-kpis {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.rh-kpi {
+  background: var(--black-card, #1a1a1a);
+  border: 1px solid var(--line, #2a2a2a);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.rh-kpi__label { color: var(--ink-soft, #a4a4a4); font-size: 13px; font-weight: 600; }
+.rh-kpi__value { color: #fff; font-size: 22px; font-weight: 700; font-family: "Poppins", sans-serif; }
+.rh-kpi__value--green { color: #4ade80; }
+
+/* ---- gráficos ---- */
+.rh-charts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.rh-chart-card {
+  background: var(--black-card, #1a1a1a);
+  border: 1px solid var(--line, #2a2a2a);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 16px;
+}
+.rh-chart-card h3 { margin: 0 0 14px; font-size: 15px; color: #fff; }
+.rh-chart-card canvas { max-height: 260px; }
+
+/* ---- grade de funcionários ---- */
+.rh-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+.rh-card {
+  background: var(--black-card, #1a1a1a);
+  border: 1px solid var(--line, #2a2a2a);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color .15s, transform .12s;
+}
+.rh-card:hover { border-color: var(--red, #dc2626); transform: translateY(-2px); }
+.rh-card__link { display: flex; gap: 14px; align-items: center; text-decoration: none; }
+.rh-card__info { min-width: 0; }
+.rh-card__info h3 { margin: 0 0 3px; font-size: 16px; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rh-card__cargo { margin: 0 0 6px; color: var(--ink-soft, #a4a4a4); font-size: 13px; }
+.rh-card__actions { display: flex; gap: 2px; justify-content: flex-end; border-top: 1px solid var(--line, #2a2a2a); padding-top: 8px; }
+
+/* ---- avatar ---- */
+.rh-avatar {
+  flex: 0 0 auto;
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #dc2626, #7f1d1d);
+  color: #fff; font-weight: 700; font-size: 18px;
+  font-family: "Poppins", sans-serif;
+}
+.rh-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.rh-avatar--lg { width: 96px; height: 96px; font-size: 32px; }
+
+/* ---- status ---- */
+.rh-status {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.rh-status--ativo     { background: rgba(20,83,45,.35); color: #4ade80; }
+.rh-status--ferias    { background: rgba(30,58,138,.35); color: #93c5fd; }
+.rh-status--afastado  { background: rgba(120,53,15,.35); color: #fbbf24; }
+.rh-status--desligado { background: rgba(80,80,80,.35); color: #d1d5db; }
+
+/* ---- perfil ---- */
+.rh-perfil-head {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: var(--black-card, #1a1a1a);
+  border: 1px solid var(--line, #2a2a2a);
+  border-radius: 16px;
+  padding: 22px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.rh-perfil-info { flex: 1; min-width: 200px; }
+.rh-perfil-info h2 { margin: 0 0 6px; color: #fff; font-size: 22px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.rh-perfil-cargo { margin: 0 0 10px; color: var(--ink-soft, #a4a4a4); font-size: 15px; }
+.rh-perfil-meta { display: flex; flex-wrap: wrap; gap: 14px; color: var(--ink-soft, #a4a4a4); font-size: 13px; }
+.rh-perfil-salario {
+  text-align: right;
+  display: flex; flex-direction: column; gap: 4px;
+  padding-left: 20px; border-left: 1px solid var(--line, #2a2a2a);
+}
+.rh-perfil-comissao { color: #4ade80; font-size: 13px; font-weight: 600; }
+
+.rh-cols {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) 1fr;
+  gap: 16px;
+  align-items: start;
+}
+.rh-panel {
+  background: var(--black-card, #1a1a1a);
+  border: 1px solid var(--line, #2a2a2a);
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 16px;
+}
+.rh-panel h3 { margin: 0 0 12px; color: #fff; font-size: 16px; }
+
+.rh-dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; margin: 0; }
+.rh-dl dt { color: var(--ink-soft, #a4a4a4); font-size: 13px; font-weight: 600; }
+.rh-dl dd { margin: 0; color: #fff; font-size: 13px; text-align: right; }
+.rh-obs { color: var(--ink, #e5e5e5); font-size: 14px; line-height: 1.6; }
+
+.rh-neg { color: #f87171; }
+
+/* tags do histórico salarial */
+.rh-tag { display: inline-block; padding: 1px 9px; border-radius: 20px; font-size: 12px; font-weight: 600; }
+.rh-tag--salario_base { background: rgba(255,255,255,.1); color: #e5e5e5; }
+.rh-tag--aumento     { background: rgba(20,83,45,.35); color: #4ade80; }
+.rh-tag--bonificacao { background: rgba(30,58,138,.35); color: #93c5fd; }
+.rh-tag--comissao    { background: rgba(88,28,135,.35); color: #d8b4fe; }
+.rh-tag--desconto    { background: rgba(127,29,29,.4); color: #fca5a5; }
+
+/* bloco "adicionar" recolhível */
+.rh-add { margin-top: 14px; border-top: 1px solid var(--line, #2a2a2a); padding-top: 12px; }
+.rh-add > summary {
+  cursor: pointer;
+  color: var(--red-bright, #f83b3b);
+  font-weight: 600;
+  font-size: 14px;
+  list-style: none;
+  user-select: none;
+}
+.rh-add > summary::-webkit-details-marker { display: none; }
+.rh-add > summary:hover { color: #ff6b6b; }
+.rh-add .admin-form { margin-top: 12px; }
+
+@media (max-width: 900px) {
+  .rh-cols { grid-template-columns: 1fr; }
+  .rh-perfil-salario { text-align: left; padding-left: 0; border-left: 0; border-top: 1px solid var(--line, #2a2a2a); padding-top: 12px; width: 100%; }
+}

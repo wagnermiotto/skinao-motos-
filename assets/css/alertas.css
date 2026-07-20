@@ -1,0 +1,100 @@
+/* ============================================================
+   Pendências / Alertas acionáveis do dashboard
+   ============================================================ */
+
+.alerta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+}
+
+.alerta-card {
+  background: var(--black-card, #1a1a1a);
+  border: 1px solid var(--line, #2a2a2a);
+  border-left-width: 4px;
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+.alerta-card--danger  { border-left-color: #dc2626; }
+.alerta-card--warning { border-left-color: #fbbf24; }
+.alerta-card--info    { border-left-color: #60a5fa; }
+
+.alerta-card__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.alerta-card__icon { font-size: 20px; line-height: 1; }
+.alerta-card__head h3 {
+  margin: 0;
+  font-size: 15px;
+  color: #fff;
+  flex: 1;
+}
+
+.alerta-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 7px;
+  border-radius: 11px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  vertical-align: middle;
+}
+.alerta-badge--danger  { background: #dc2626; }
+.alerta-badge--warning { background: #b45309; color: #fde68a; }
+.alerta-badge--info    { background: #1d4ed8; }
+
+.alerta-lista {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.alerta-lista li { font-size: 13.5px; line-height: 1.4; }
+.alerta-lista a {
+  color: var(--ink-soft, #cfcfcf);
+  text-decoration: none;
+  display: block;
+  padding: 5px 8px;
+  border-radius: 7px;
+  transition: background .13s, color .13s;
+}
+.alerta-lista a:hover {
+  background: rgba(255, 255, 255, .06);
+  color: #fff;
+}
+.alerta-mais { color: var(--ink-mute, #888); font-size: 12px; padding: 3px 8px; font-style: italic; }
+
+.alerta-vazio {
+  background: rgba(20, 83, 45, .25);
+  border: 1px solid rgba(74, 222, 128, .3);
+  color: #4ade80;
+  border-radius: 12px;
+  padding: 16px 18px;
+  font-weight: 600;
+}
+
+/* badge no menu de navegação */
+.admin-topbar__nav .nav-alerta-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  margin-left: 5px;
+  border-radius: 9px;
+  background: #dc2626;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+}
