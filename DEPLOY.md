@@ -128,7 +128,17 @@ A Hostinger consegue puxar o código direto do repositório (bom para atualizaç
 > ⚠️ O repositório **não contém** (de propósito): as fotos (`uploads/`), os dados
 > (`sql/dados-producao.sql`) e as credenciais (`config.local.php`). Esses três
 > continuam sendo enviados **uma vez** manualmente, como descrito nos Passos 2–4.
-> O deploy via Git não apaga esses arquivos nas atualizações.
+>
+> ⚠️ **IMPORTANTE — fotos e o auto-deploy:** o deploy do GitHub da Hostinger
+> **apaga** arquivos não versionados dentro do `public_html` (foi observado na
+> prática: as fotos foram removidas num deploy; o `config.local.php` sobreviveu).
+> Por isso, no servidor as fotos ficam **fora** do `public_html`, em
+> `~/domains/<dominio>/uploads_data/`, e `public_html/uploads` é um **link
+> simbólico** para essa pasta:
+> `ln -s ../uploads_data public_html/uploads`
+> Se um deploy recriar a pasta `uploads` real (apagando o link), basta refazer:
+> `rm -rf public_html/uploads && ln -s ../uploads_data public_html/uploads`
+> — as fotos em si ficam intactas em `uploads_data`.
 >
 > Se o repositório for **privado** (recomendado), a Hostinger pede para adicionar
 > a chave SSH dela no GitHub (o hPanel mostra a chave em Avançado → GIT; cole em
