@@ -17,9 +17,10 @@
 
 # Fotos e documentos enviados pelo painel (vão por uploads-fotos.zip).
 # A pasta INTEIRA fica fora do repo: no servidor, public_html/uploads é um
-# symlink para ../uploads_data — se uploads/ existisse no repo, o auto-deploy
-# da Hostinger recriaria a pasta real por cima do symlink (ver DEPLOY.md).
-/uploads/
+# SYMLINK para ../uploads_data. Sem a barra no final de propósito: "/uploads/"
+# só casaria com diretório, e o git clean do auto-deploy apagaria o symlink
+# (símlink não é diretório para o git). Ver DEPLOY.md.
+/uploads
 
 # Pacotes de deploy (gerados por scripts/empacotar-deploy.ps1)
 *.zip
